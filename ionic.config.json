@@ -1,0 +1,7 @@
+{
+  "name": "Nasa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
