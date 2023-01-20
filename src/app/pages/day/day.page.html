@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button class="previous-button" (click)="goToPageHome()" slot="start" fill="outline"></ion-back-button>
+    <ion-title>Your Lucky Day</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  
+  <div class="cent"><h2>Pick date</h2></div>
+    
+    <div class="cent">
+    <ion-item (click)="showpicker = !showpicker">
+      <ion-label>Date</ion-label>
+      <ion-text slot="end">
+        {{ formattedString }}
+      </ion-text>
+    </ion-item>
+    <ion-datetime *ngIf = "showpicker"
+    locale="en-EN"
+    presentation="date"
+    #datetime 
+    [value]="dateValue" size="cover"
+    (ionChange)="dateChanged(datetime.value)"
+    showDefaultButtons="true"
+    (ionCancel)="showpicker=false;">
+    <span slot="title">Select your lucky day</span>
+    </ion-datetime>
+  </div>
+    <div>
+      <div class="container">
+      <button class="circle-button" (click)="clickSave()">GENERATE PICTURE OF <br> YOUR LUCKY DAY</button>
+      </div>
+    </div>
+    <div *ngIf="showCardContent">
+    <ion-card>
+      <ion-img src="{{data.url}}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{data.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{data.explanation}}
+    </ion-card-content>
+    <ion-card-content>
+        <ion-row>
+        <ion-col size="6"> Image Copyright:<br>{{data.copyright}} </ion-col>
+        <ion-col size="6">Published:<br>{{data.date}}</ion-col>
+        </ion-row>
+        
+    </ion-card-content>
+    <div>
+      <div class="container">
+      <button class="circle-button" (click)="clickAdd()">SAVE YOUR <br> LUCKY DAY</button>
+      </div>
+    </div>
+  </ion-card>
+</div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button class="previous-button" (click)="goToPageHome2()" slot="start" fill="outline"></ion-back-button>
+    <ion-title>Photo Of The Day</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  <div *ngIf="showCardContent">
+    
+    
+    <ion-card>
+      
+        <ion-img src="{{data.url}}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{data.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{data.explanation}}
+      </ion-card-content>
+      <ion-card-content>
+        
+          <ion-row>
+          <ion-col size="6"> Image Copyright:<br>{{data.copyright}} </ion-col>
+          <ion-col size="6">Published:<br>{{data.date}}</ion-col>
+          </ion-row>
+          
+        
+      
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+  
+
+
+
